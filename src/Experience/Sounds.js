@@ -20,7 +20,7 @@ export default class Sounds {
 
     this.bloop = new Howl({
       src: [bloop],
-      volume: 0.3,
+      volume: 1,
     });
 
     this.click = new Howl({

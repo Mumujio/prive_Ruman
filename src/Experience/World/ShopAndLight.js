@@ -62,6 +62,18 @@ export default class RamenShop extends EventEmitter {
           case "text_RAMEN":
             mesh.material = this.material.textRamenMaterial;
             break;
+          case "text_back":
+            mesh.material = this.material.textBackMaterial;
+            break;
+          case "text_about":
+            mesh.material = this.material.aboutMeTitleMaterial;
+            break;
+          case "text_skills":
+            mesh.material = this.material.skillsTitleMaterial;
+            break;
+          case "text_experience":
+            mesh.material = this.material.experienceTitleMaterial;
+            break;
           case "窗帘1":
           case "窗帘2":
             mesh.material = this.material.curtainMaterial;
@@ -72,12 +84,20 @@ export default class RamenShop extends EventEmitter {
           case "侧面电视4":
           case "侧面电视5":
           case "侧面电视6":
-          case "侧面电视7":
+
           case "侧面大电视":
           case "正面电视1":
           case "正面电视2":
             mesh.material = this.material.bigVideoMaterial;
             break;
+          case "侧面电视7":
+            mesh.material = this.material.aboutMeScreenMaterial;
+            break;
+          case "简历屏幕1":
+            mesh.material = this.material.prive1Material;
+            break;
+          case "简历屏幕2":
+            mesh.material = this.material.resumeMaterial;
           default:
             break;
         }

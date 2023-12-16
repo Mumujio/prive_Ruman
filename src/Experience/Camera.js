@@ -40,7 +40,7 @@ export default class Camera {
   setCamAngles() {
     this.camAngle = {};
     this.camAngle.default = () => {
-      this.controls.minDistance = 7;
+      this.controls.minDistance = 13;
       this.controls.maxDistance = 20;
       this.controls.minAzimuthAngle = 0;
       this.controls.maxAzimuthAngle = Math.PI * 1.9999;
@@ -58,10 +58,18 @@ export default class Camera {
     this.camAngle.aboutMe = () => {
       this.controls.minDistance = 1;
       this.controls.maxDistance = 2.2;
-      this.controls.minAzimuthAngle = -(Math.PI * 0.2); //left
-      this.controls.maxAzimuthAngle = Math.PI * 0.2; //right
-      this.controls.minPolarAngle = Math.PI * 0.3;
-      this.controls.maxPolarAngle = Math.PI * 0.65;
+      // this.controls.minAzimuthAngle = -(Math.PI * 0.2); //left
+      // this.controls.maxAzimuthAngle = Math.PI * 0.2; //right
+      // this.controls.minPolarAngle = Math.PI * 0.3;
+      // this.controls.maxPolarAngle = Math.PI * 0.65;
+    };
+    this.camAngle.articles = () => {
+      this.controls.minDistance = 1;
+      this.controls.maxDistance = 1.5;
+      // this.controls.minAzimuthAngle = -(Math.PI * 0.2); //left
+      // this.controls.maxAzimuthAngle = Math.PI * 0.2; //right
+      // this.controls.minPolarAngle = Math.PI * 0.3;
+      // this.controls.maxPolarAngle = Math.PI * 0.65;
     };
   }
   setTransitions() {
@@ -98,20 +106,43 @@ export default class Camera {
       gsap.to(this.instance.position, {
         duration: duration,
         ease: "power1.inOut",
-        x: 0.66,
-        y: 3.8,
-        z: this.aboutMeDistance,
+        x: 12,
+        y: 11,
+        z: -7.5,
       });
       gsap.to(this.controls.target, {
         duration: duration,
         ease: "power1.inOut",
-        x: 0.66,
-        y: 3.8,
-        z: 0.7,
+        x: 11,
+        y: 11,
+        z: -7.5,
       });
 
       await this.sleep(1500);
-      // this.controls.enableRotate = true
+      // this.controls.enableRotate = true;
+      this.controls.enableZoom = true;
+    };
+    this.transitions.articles = async (duration) => {
+      this.controls.enableRotate = false;
+      this.controls.enableZoom = false;
+
+      gsap.to(this.instance.position, {
+        duration: duration,
+        ease: "power1.inOut",
+        x: 13.9,
+        y: 2.6,
+        z: -7.4,
+      });
+      gsap.to(this.controls.target, {
+        duration: duration,
+        ease: "power1.inOut",
+        x: 12.9,
+        y: 2.6,
+        z: -7.4,
+      });
+
+      await this.sleep(1500);
+      // this.controls.enableRotate = true;
       this.controls.enableZoom = true;
     };
   }

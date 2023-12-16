@@ -43,8 +43,10 @@ export default class RayCaster extends EventEmitter {
     }
   }
   intersect() {
-    const intersects = this.raycaster.intersectObjects(this.raycasters);
-
+    // const intersects = this.raycaster.intersectObjects(this.raycasters);
+    const intersects = this.raycaster.intersectObjects(
+      this.experience.scene.children
+    );
     if (intersects.length) {
       const intersectName = intersects[0].object.name;
       console.log(intersectName);
@@ -53,7 +55,30 @@ export default class RayCaster extends EventEmitter {
         case "text_aboutMe":
           this.controller.menuControls.aboutMe(intersects[0].object, "black");
           break;
-
+        // 点击projects
+        case "text_projects":
+          this.controller.menuControls.projects(intersects[0].object, "white");
+          break;
+        // 点击articles
+        case "text_articles":
+          this.controller.menuControls.articles(intersects[0].object, "black");
+          break;
+        // 点击aboutMe的 Back
+        case "text_back":
+          this.controller.aboutMeControls.aboutMeBack();
+          break;
+        // 点击aboutMe的 About
+        case "text_about":
+          this.controller.aboutMeControls.aboutMeScreens();
+          break;
+        // 点击aboutMe的 Skills
+        case "text_skills":
+          this.controller.aboutMeControls.aboutMeSkills();
+          break;
+        // 点击aboutMe的 Experience
+        case "text_experience":
+          this.controller.aboutMeControls.aboutMeExperience();
+          break;
         default:
           break;
       }

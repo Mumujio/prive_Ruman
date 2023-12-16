@@ -9,7 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, "../dist"),
     filename: "[contenthash].bundle.js",
   },
-  devtool: "source-map",
+  devtool: "inline-source-map",
 
   plugins: [
     new CopyPlugin({

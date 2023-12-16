@@ -1,4 +1,5 @@
 import Experience from "../Experience.js";
+import Galaxy from "./Galaxy.js";
 
 import ShopAndLight from "./ShopAndLight.js";
 
@@ -13,6 +14,7 @@ export default class World {
     this.resources.on("ready", () => {
       // Setup
       this.shopAndLight = new ShopAndLight();
+
       // const axesHelper = new THREE.AxesHelper(5);
       // this.scene.add(axesHelper);
     });

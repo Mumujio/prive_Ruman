@@ -45,4 +45,34 @@ export default [
     type: "videoTexture",
     path: "/static/textures/videosTextures/smallScreen3.mp4",
   },
+  {
+    name: "resumeTexture",
+    type: "texture",
+    path: "/static/textures/photoTextures/resume.png",
+  },
+  {
+    name: "aboutMeScreenTexture",
+    type: "texture",
+    path: "/static/textures/photoTextures/aboutMe.png",
+  },
+  {
+    name: "skillsScreenTexture",
+    type: "texture",
+    path: "/static/textures/photoTextures/skills.png",
+  },
+  {
+    name: "experienceScreenTexture",
+    type: "texture",
+    path: "/static/textures/photoTextures/experience.png",
+  },
+  {
+    name: "prive_1Texture",
+    type: "texture",
+    path: "/static/textures/photoTextures/prive_1.png",
+  },
+  {
+    name: "prive_2Texture",
+    type: "texture",
+    path: "/static/textures/photoTextures/prive_2.png",
+  },
 ];

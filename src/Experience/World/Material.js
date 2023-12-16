@@ -10,6 +10,7 @@ export default class Material extends EventEmitter {
     this.resources = this.experience.resources;
     this.resources.on("ready", () => {
       this.mapTextures();
+      this.colorTextures();
     });
   }
   mapTextures() {
@@ -21,16 +22,25 @@ export default class Material extends EventEmitter {
     this.planeBakedMaterial = new THREE.MeshBasicMaterial({
       map: this.resources.items["planeBakedTexture"],
     });
-
+    this.resumeMaterial = new THREE.MeshBasicMaterial({
+      map: this.resources.items["resumeTexture"],
+    });
+    this.aboutMeScreenMaterial = new THREE.MeshBasicMaterial({
+      map: this.resources.items["aboutMeScreenTexture"],
+    });
+    this.prive1Material = new THREE.MeshBasicMaterial({
+      map: this.resources.items["prive_1Texture"],
+    });
+    this.prive2Material = new THREE.MeshBasicMaterial({
+      map: this.resources.items["prive_2Texture"],
+    });
     // 装载视频材质
-    // this.bigVideoMaterial = this.getTransitionShaderMaterial(
-    //   this.resources.items["smallScreen4VideoTexture"]
-    // );
     this.bigVideoMaterial = new THREE.MeshBasicMaterial({
       map: this.resources.items["smallScreen4VideoTexture"],
     });
-
-    // 装载文字材质
+  }
+  colorTextures() {
+    // 装载颜色材质
     this.textAboutMeMaterial = new THREE.MeshBasicMaterial({
       color: 0x171414,
     });
@@ -57,6 +67,18 @@ export default class Material extends EventEmitter {
     });
     this.curtainMaterial = new THREE.MeshBasicMaterial({
       color: 0x0d31c9,
+    });
+    this.textBackMaterial = new THREE.MeshBasicMaterial({
+      color: 0xeeeeee,
+    });
+    this.aboutMeTitleMaterial = new THREE.MeshBasicMaterial({
+      color: 0xeeeeee,
+    });
+    this.skillsTitleMaterial = new THREE.MeshBasicMaterial({
+      color: 0xeeeeee,
+    });
+    this.experienceTitleMaterial = new THREE.MeshBasicMaterial({
+      color: 0xeeeeee,
     });
 
     this.resources.trigger("texturesMapped");

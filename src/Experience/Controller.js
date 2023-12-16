@@ -12,7 +12,7 @@ export default class Controller {
     // this.setLogic()
     // this.setProjectControls()
     this.setMenuControls();
-    // this.setAboutMeControls()
+    this.setAboutMeControls();
     // this.setArcadeScreenControls()
     this.setCamControls();
     // this.setVideoControls()
@@ -208,7 +208,9 @@ export default class Controller {
 
       this.menuControls.buttonIndicator(obj, color);
       this.camControls.toAboutMe();
-
+      this.materials.aboutMeTitleMaterial.color.setHex(0x87cefa);
+      this.materials.skillsTitleMaterial.color.setHex(0xffffff);
+      this.materials.experienceTitleMaterial.color.setHex(0xffffff);
       //   if (this.config.vertical === true) {
       //     this.bigScreenTransition(
       //       this.materials.bigScreenMaterial,
@@ -223,7 +225,18 @@ export default class Controller {
       //     );
       //   }
     };
+    this.menuControls.projects = async (obj, color) => {
+      this.sounds.playClick();
 
+      this.menuControls.buttonIndicator(obj, color);
+      this.camControls.toProjects();
+    };
+    this.menuControls.articles = async (obj, color) => {
+      this.sounds.playClick();
+
+      this.menuControls.buttonIndicator(obj, color);
+      this.camControls.toArticles();
+    };
     this.menuControls.buttonIndicator = async (obj, color) => {
       if (color === "black") {
         obj.material = this.materials.textProjectsMaterial;
@@ -242,98 +255,40 @@ export default class Controller {
 
   setAboutMeControls() {
     this.aboutMeControls = {};
-
+    this.aboutMeControls.aboutMeBack = async () => {
+      this.sounds.playBloop();
+      this.materials.aboutMeScreenMaterial.map =
+        this.resources.items.aboutMeScreenTexture;
+      this.materials.aboutMeTitleMaterial.color.setHex(0x87cefa);
+      this.materials.skillsTitleMaterial.color.setHex(0xffffff);
+      this.materials.experienceTitleMaterial.color.setHex(0xffffff);
+      this.camControls.toDefault();
+    };
     this.aboutMeControls.aboutMeScreens = async () => {
-      if (
-        this.logic.buttonsLocked === false &&
-        (this.logic.mode === "skills" || this.logic.mode === "experience")
-      ) {
-        this.sounds.playBloop();
-        this.logic.mode = "aboutMe";
-
-        if (this.config.vertical === true) {
-          this.bigScreenTransition(
-            this.materials.bigScreenMaterial,
-            this.resources.items.bigScreenAboutMeMobileTexture,
-            0.2
-          );
-        } else {
-          this.bigScreenTransition(
-            this.materials.bigScreenMaterial,
-            this.resources.items.bigScreenAboutMeTexture,
-            0.2
-          );
-        }
-      }
+      this.sounds.playBloop();
+      this.materials.aboutMeScreenMaterial.map =
+        this.resources.items.aboutMeScreenTexture;
+      this.materials.aboutMeTitleMaterial.color.setHex(0x87cefa);
+      this.materials.skillsTitleMaterial.color.setHex(0xffffff);
+      this.materials.experienceTitleMaterial.color.setHex(0xffffff);
     };
 
     this.aboutMeControls.aboutMeSkills = async () => {
-      if (
-        this.logic.buttonsLocked === false &&
-        (this.logic.mode === "aboutMe" || this.logic.mode === "experience")
-      ) {
-        this.sounds.playBloop();
-        this.logic.mode = "skills";
-
-        if (this.config.vertical === true) {
-          this.bigScreenTransition(
-            this.materials.bigScreenMaterial,
-            this.resources.items.bigScreenSkillsMobileTexture,
-            0.2
-          );
-        } else {
-          this.bigScreenTransition(
-            this.materials.bigScreenMaterial,
-            this.resources.items.bigScreenSkillsTexture,
-            0.2
-          );
-        }
-      }
+      this.sounds.playBloop();
+      this.materials.aboutMeScreenMaterial.map =
+        this.resources.items.skillsScreenTexture;
+      this.materials.aboutMeTitleMaterial.color.setHex(0xffffff);
+      this.materials.skillsTitleMaterial.color.setHex(0x87cefa);
+      this.materials.experienceTitleMaterial.color.setHex(0xffffff);
     };
 
     this.aboutMeControls.aboutMeExperience = async () => {
-      if (
-        this.logic.buttonsLocked === false &&
-        (this.logic.mode === "aboutMe" || this.logic.mode === "skills")
-      ) {
-        this.sounds.playBloop();
-        this.logic.mode = "experience";
-
-        if (this.config.vertical === true) {
-          this.bigScreenTransition(
-            this.materials.bigScreenMaterial,
-            this.resources.items.bigScreenExperienceMobileTexture,
-            0.2
-          );
-        } else {
-          this.bigScreenTransition(
-            this.materials.bigScreenMaterial,
-            this.resources.items.bigScreenExperienceTexture,
-            0.2
-          );
-        }
-      }
-    };
-
-    this.aboutMeControls.aboutMeBack = async () => {
-      if (
-        this.logic.buttonsLocked === false &&
-        (this.logic.mode === "aboutMe" ||
-          this.logic.mode === "skills" ||
-          this.logic.mode === "experience")
-      ) {
-        this.sounds.playBloop();
-        this.logic.mode = "menu";
-        this.camControls.toDefault();
-
-        this.bigScreenTransition(
-          this.materials.bigScreenMaterial,
-          this.resources.items.bigScreenDefaultTexture,
-          0.4,
-          1,
-          0
-        );
-      }
+      this.sounds.playBloop();
+      this.materials.aboutMeScreenMaterial.map =
+        this.resources.items.experienceScreenTexture;
+      this.materials.aboutMeTitleMaterial.color.setHex(0xffffff);
+      this.materials.skillsTitleMaterial.color.setHex(0xffffff);
+      this.materials.experienceTitleMaterial.color.setHex(0x87cefa);
     };
   }
 
@@ -403,6 +358,19 @@ export default class Controller {
       this.camera.transitions.aboutMe(1.5);
       await this.sleep(1500);
       this.camera.camAngle.aboutMe();
+    };
+    // projects 控制
+    this.camControls.toProjects = async () => {
+      await this.sleep(500);
+      window.open("https://github.com/Mumujio");
+    };
+    // articles 控制
+    this.camControls.toArticles = async () => {
+      this.sounds.playWhoosh();
+      this.camera.camAngle.unlocked();
+      this.camera.transitions.articles(1.5);
+      await this.sleep(1500);
+      this.camera.camAngle.articles();
     };
   }
 
