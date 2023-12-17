@@ -40,7 +40,7 @@ export default class Camera {
   setCamAngles() {
     this.camAngle = {};
     this.camAngle.default = () => {
-      this.controls.minDistance = 13;
+      this.controls.minDistance = 10;
       this.controls.maxDistance = 20;
       this.controls.minAzimuthAngle = 0;
       this.controls.maxAzimuthAngle = Math.PI * 1.9999;

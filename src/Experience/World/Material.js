@@ -15,12 +15,9 @@ export default class Material extends EventEmitter {
   }
   mapTextures() {
     // 装载烘焙材质
-    this.lightAndHomeBakedMaterial = new THREE.MeshBasicMaterial({
-      map: this.resources.items["homeAndLight_backedTexture"],
-      side: THREE.DoubleSide,
-    });
-    this.planeBakedMaterial = new THREE.MeshBasicMaterial({
-      map: this.resources.items["planeBakedTexture"],
+
+    this.allBakedMaterial = new THREE.MeshBasicMaterial({
+      map: this.resources.items["allBakedTexture"],
     });
     this.resumeMaterial = new THREE.MeshBasicMaterial({
       map: this.resources.items["resumeTexture"],

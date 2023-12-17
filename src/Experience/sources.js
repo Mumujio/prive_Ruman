@@ -4,15 +4,21 @@ export default [
     type: "gltfModel",
     path: "/static/models/new_noexports.glb",
   },
+  // {
+  //   name: "homeAndLight_backedTexture",
+  //   type: "texture",
+  //   path: "/static/textures/HbTextures/homeAndLight_backedTexture.jpg",
+  // },
+  // {
+  //   name: "planeBakedTexture",
+  //   type: "texture",
+  //   path: "/static/textures/HbTextures/plane_bakedTexture.jpg",
+  // },
+
   {
-    name: "homeAndLight_backedTexture",
+    name: "allBakedTexture",
     type: "texture",
-    path: "/static/textures/HbTextures/homeAndLight_backedTexture.jpg",
-  },
-  {
-    name: "planeBakedTexture",
-    type: "texture",
-    path: "/static/textures/HbTextures/plane_bakedTexture.jpg",
+    path: "/static/textures/HbTextures/allBakedTexture.jpg",
   },
   // Videos
   {
