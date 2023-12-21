@@ -28,12 +28,11 @@ export default class Material extends EventEmitter {
     this.aboutMeScreenMaterial = new THREE.MeshBasicMaterial({
       map: this.resources.items["aboutMeScreenTexture"],
     });
-    this.prive1Material = new THREE.MeshBasicMaterial({
+    // 默认照片
+    this.priveMaterial = new THREE.MeshBasicMaterial({
       map: this.resources.items["prive_1Texture"],
     });
-    this.prive2Material = new THREE.MeshBasicMaterial({
-      map: this.resources.items["prive_2Texture"],
-    });
+
     // 装载视频材质
     this.bigVideoMaterial = new THREE.MeshBasicMaterial({
       map: this.resources.items["smallScreen4VideoTexture"],

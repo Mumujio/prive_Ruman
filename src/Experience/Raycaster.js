@@ -79,6 +79,10 @@ export default class RayCaster extends EventEmitter {
         case "text_experience":
           this.controller.aboutMeControls.aboutMeExperience();
           break;
+        // 切换右侧照片墙
+        case "简历屏幕1":
+          this.controller.menuControls.switchRightPhoto();
+          break;
         default:
           break;
       }

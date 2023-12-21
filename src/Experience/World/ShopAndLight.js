@@ -94,7 +94,7 @@ export default class RamenShop extends EventEmitter {
             mesh.material = this.material.aboutMeScreenMaterial;
             break;
           case "简历屏幕1":
-            mesh.material = this.material.prive1Material;
+            mesh.material = this.material.priveMaterial;
             break;
           case "简历屏幕2":
             mesh.material = this.material.resumeMaterial;

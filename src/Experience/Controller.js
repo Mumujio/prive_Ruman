@@ -8,7 +8,7 @@ export default class Controller {
     this.camera = this.experience.camera;
     this.resources = this.experience.resources;
     this.sounds = this.experience.sounds;
-
+    this.numRightPhoto = 1;
     // this.setLogic()
     // this.setProjectControls()
     this.setMenuControls();
@@ -236,6 +236,13 @@ export default class Controller {
 
       this.menuControls.buttonIndicator(obj, color);
       this.camControls.toArticles();
+    };
+    this.menuControls.switchRightPhoto = () => {
+      this.sounds.playBloop();
+      this.numRightPhoto++;
+      this.numRightPhoto === 3 ? (this.numRightPhoto = 1) : null;
+      this.materials.priveMaterial.map =
+        this.resources.items[`prive_${this.numRightPhoto}Texture`];
     };
     this.menuControls.buttonIndicator = async (obj, color) => {
       if (color === "black") {
