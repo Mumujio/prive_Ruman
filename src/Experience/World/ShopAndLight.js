@@ -19,13 +19,9 @@ export default class RamenShop extends EventEmitter {
     this.resources.on("texturesMapped", () => {
       // 替换烘焙材质
       this.shopAndLightModel.scene.traverse((mesh) => {
-        mesh.material = this.material.lightAndHomeBakedMaterial;
+        mesh.material = this.material.allBakedMaterial;
 
         switch (mesh.name) {
-          case "地面":
-            mesh.material = this.material.planeBakedMaterial;
-            break;
-          // about me
           case "text_aboutMe":
             mesh.material = this.material.textAboutMeMaterial;
             break;
